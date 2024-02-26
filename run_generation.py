@@ -4,7 +4,7 @@ import openai
 
 
 
-openai.api_key = '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'
+openai.api_key = ''
 
 output_file_path = 'output.csv'
 
