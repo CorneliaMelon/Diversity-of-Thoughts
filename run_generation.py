@@ -6,11 +6,11 @@ import openai
 
 openai.api_key = ''
 
-output_file_path = 'output.csv'
+output_file_path = 'output-280-different-roles.csv'
 
-QUERY = "Solve\n\\[\\arcsin x + \\arcsin 2x = \\frac{\\pi}{3}.\\]" 
+QUERY = "A standard six-sided fair die is rolled four times. The probability that the product of all four numbers rolled is a perfect square is $\\tfrac{m}{n}$, where $m$ and $n$ are relatively prime positive integers. Find $m+n$.\n" 
 
-ROLES = ["Mathematician", "Economist", "Programmer", "Historian"]
+ROLES = ["Psychologist", "Lawyer", "Doctor", "Assistant"]
 #need function that gives us the role description based off of the key 
 
 def main():
