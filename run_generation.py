@@ -27,11 +27,11 @@ batch_size = 8
 directory = '/Users/corneliaweinzierl/Downloads/MATH/train/intermediate_algebra'
 
 ROLES = ["Mathematician", "Programmer", "Economist", "Lawyer"]
-#need function that gives us the role description based off of the key 
+
 
 
 def process_random_files(directory, batch_size, output_problem_path):
-    # List all JSON files in the directory
+    
     json_files = [f for f in os.listdir(directory) if f.endswith('.json')]
     
     # Randomly sample batch_size number of files
@@ -43,7 +43,7 @@ def process_random_files(directory, batch_size, output_problem_path):
     with open(output_problem_path, 'a', newline='', encoding='utf-8') as csvfile:
         csvwriter = csv.writer(csvfile)
         
-        # Check if the file is empty to decide whether to write the header
+        
         csvfile.seek(0, os.SEEK_END)
         if csvfile.tell() == 0:
             csvwriter.writerow(['Problem'])
@@ -58,13 +58,30 @@ def process_random_files(directory, batch_size, output_problem_path):
                 data_generation.construct_training_data(problem, ROLES, data_generation.ROLE_MAP, openai, output_file_path)
                 csvwriter.writerow([problem])
     
+def append_csv_files(source_csv_1, source_csv_2, destination_csv):
+    with open(destination_csv, 'w', newline='', encoding='utf-8') as dest_file:
+        csv_writer = csv.writer(dest_file)
+        
+        
+        with open(source_csv_1, 'r', encoding='utf-8') as src_file1:
+            csv_reader1 = csv.reader(src_file1)
+            for row in csv_reader1:
+                csv_writer.writerow(row)
+        
+        
+        with open(source_csv_2, 'r', encoding='utf-8') as src_file2:
+            csv_reader2 = csv.reader(src_file2)
+            for row in csv_reader2:
+                csv_writer.writerow(row)
 
+source_csv_1 = 'output.csv'
+source_csv_2 = 'output-new.csv'
+destination_csv = 'output-504.csv'
 
 def main():
-    process_random_files(directory = directory, batch_size = batch_size, output_problem_path = output_problem_path)
+    #process_random_files(directory = directory, batch_size = batch_size, output_problem_path = output_problem_path)
     #data_generation.construct_training_data(QUERY, ROLES, data_generation.ROLE_MAP, openai, output_file_path)
-
-
+    append_csv_files(source_csv_1, source_csv_2, destination_csv)
 
 if __name__ == "__main__":
     main()
