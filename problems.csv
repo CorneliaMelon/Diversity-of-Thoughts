@@ -184,3 +184,87 @@ Compute
 (E) Hyperbola
 
 Enter the letter of the correct option."
+"Let $x,$ $y,$ $z$ be real numbers such that
+\begin{align*}
+x + y + z &= 4, \\
+x^2 + y^2 + z^2 &= 6.
+\end{align*}Let $m$ and $M$ be the smallest and largest possible values of $x,$ respectively.  Find $m + M.$"
+"Let $a,$ $b,$ $c,$ $d$ be distinct real numbers such that the roots of $x^2 - 10ax - 11b = 0$ are $c$ and $d,$ and the roots of $x^2 - 10cx - 11d = 0$ are $a$ and $b.$  Find the value of $a + b + c + d.$"
+"The graph of $y = f(x)$ is shown below.
+
+[asy]
+unitsize(0.3 cm);
+
+real func(real x) {
+  real y;
+  if (x >= -3 && x <= 0) {y = -2 - x;}
+  if (x >= 0 && x <= 2) {y = sqrt(4 - (x - 2)^2) - 2;}
+  if (x >= 2 && x <= 3) {y = 2*(x - 2);}
+  return(y);
+}
+
+int i, n;
+
+for (i = -8; i <= 8; ++i) {
+  draw((i,-8)--(i,8),gray(0.7));
+  draw((-8,i)--(8,i),gray(0.7));
+}
+
+draw((-8,0)--(8,0),Arrows(6));
+draw((0,-8)--(0,8),Arrows(6));
+
+label(""$x$"", (8,0), E);
+label(""$y$"", (0,8), N);
+
+draw(graph(func,-3,3),red);
+
+label(""$y = f(x)$"", (4,-3), UnFill);
+[/asy]
+
+The graph of $y = g(x)$ is shown below.
+
+[asy]
+unitsize(0.3 cm);
+
+real func(real x) {
+  real y;
+  if (x >= -3 && x <= 0) {y = -2 - x;}
+  if (x >= 0 && x <= 2) {y = sqrt(4 - (x - 2)^2) - 2;}
+  if (x >= 2 && x <= 3) {y = 2*(x - 2);}
+  return(y);
+}
+
+real gunc(real x) {
+  return(func(-x + 4));
+}
+
+int i, n;
+
+for (i = -8; i <= 8; ++i) {
+  draw((i,-8)--(i,8),gray(0.7));
+  draw((-8,i)--(8,i),gray(0.7));
+}
+
+draw((-8,0)--(8,0),Arrows(6));
+draw((0,-8)--(0,8),Arrows(6));
+
+label(""$x$"", (8,0), E);
+label(""$y$"", (0,8), N);
+
+draw(graph(gunc,1,7),red);
+
+label(""$y = g(x)$"", (4,-3), UnFill);
+[/asy]
+
+What is $g(x)$ in terms of $f(x)$?  For example, if you think $g(x) = f(x) + 1,$ enter ""$f(x) + 1$"", without quotation marks."
+"Is $f(x) = \log{x} $ an even function, odd function, or neither?
+
+Enter ""odd"", ""even"", or ""neither""."
+"If $0 \le p \le 1$ and $0 \le q \le 1$, define $F(p, q)$ by
+\[
+  F(p, q) = -2pq + 3p(1-q) + 3(1-p)q - 4(1-p)(1-q).
+\]Define $G(p)$ to be the maximum of $F(p, q)$ over all $q$ (in the interval $0 \le q \le 1$).  What is the value of $p$ (in the interval $0 \le p \le 1$) that minimizes $G(p)$?"
+The equation $x^2 + 2x = i$ has two complex solutions. Determine the product of their real parts.
+"A sequence of integers is defined as follows: $a_i = i$ for $1 \le i \le 5,$ and
+\[a_i = a_1 a_2 \dotsm a_{i - 1} - 1\]for $i > 5.$  Evaluate $a_1 a_2 \dotsm a_{2011} - \sum_{i = 1}^{2011} a_i^2.$"
+"Find a monic polynomial of degree $4,$ in $x,$ with rational coefficients such that $\sqrt{2} +\sqrt{3}$ is a root of the polynomial."

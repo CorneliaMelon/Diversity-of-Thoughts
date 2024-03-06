@@ -7,13 +7,14 @@ import csv
 
 
 
-openai.api_key = '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'
+openai.api_key = ''
 
 output_file_path = 'output-new.csv'
 
 output_problem_path = 'problems.csv'
 
-#batch_size = 8
+
+
 batch_size = 8
 
 #QUERY = "A standard six-sided fair die is rolled four times. The probability that the product of all four numbers rolled is a perfect square is $\\tfrac{m}{n}$, where $m$ and $n$ are relatively prime positive integers. Find $m+n$.\n" 
@@ -22,7 +23,8 @@ batch_size = 8
 #directory = '/Users/corneliaweinzierl/Downloads/MATH/train/geometry'
 #directory = '/Users/corneliaweinzierl/Downloads/MATH/train/number_theory'
 #directory = '/Users/corneliaweinzierl/Downloads/MATH/train/prealgebra'
-directory = '/Users/corneliaweinzierl/Downloads/MATH/train/precalculus'
+#directory = '/Users/corneliaweinzierl/Downloads/MATH/train/precalculus'
+directory = '/Users/corneliaweinzierl/Downloads/MATH/train/intermediate_algebra'
 
 ROLES = ["Mathematician", "Programmer", "Economist", "Lawyer"]
 #need function that gives us the role description based off of the key 
