@@ -9,13 +9,13 @@ import csv
 
 openai.api_key = ''
 
-output_file_path = 'output-500-4-roles.csv'
+output_file_path = 'output-500-8-roles.csv'
 
-output_problem_path = 'problems.csv'
+output_problem_path = 'problems-8-roles.csv'
 
 
 #batch_size = 10
-batch_size = 8
+batch_size = 18
 
 #QUERY = "A standard six-sided fair die is rolled four times. The probability that the product of all four numbers rolled is a perfect square is $\\tfrac{m}{n}$, where $m$ and $n$ are relatively prime positive integers. Find $m+n$.\n" 
 #directory = '/Users/corneliaweinzierl/Downloads/MATH/train/algebra'
@@ -24,9 +24,9 @@ batch_size = 8
 #directory = '/Users/corneliaweinzierl/Downloads/MATH/train/number_theory'
 #directory = '/Users/corneliaweinzierl/Downloads/MATH/train/prealgebra'
 #directory = '/Users/corneliaweinzierl/Downloads/MATH/train/precalculus'
-#directory = '/Users/corneliaweinzierl/Downloads/MATH/train/intermediate_algebra'
+directory = '/Users/corneliaweinzierl/Downloads/MATH/train/intermediate_algebra'
 
-ROLES = ["Mathematician", "Programmer", "Economist", "Lawyer"]
+ROLES = ["Assistant", "Psychologist", "Doctor", "Historian"]
 
 
 
@@ -74,9 +74,9 @@ def append_csv_files(source_csv_1, source_csv_2, destination_csv):
             for row in csv_reader2:
                 csv_writer.writerow(row)
 
-source_csv_1 = 'output-500-4-roles.csv'
-source_csv_2 = 'output-504.csv'
-destination_csv = 'output-1000-4-roles.csv'
+source_csv_1 = 'output-500-8-roles.csv'
+source_csv_2 = 'output-500.csv'
+destination_csv = 'output-1000-8-roles.csv'
 
 def main():
     #process_random_files(directory = directory, batch_size = batch_size, output_problem_path = output_problem_path)
