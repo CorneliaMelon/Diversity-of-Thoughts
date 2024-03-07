@@ -9,9 +9,9 @@ import csv
 
 openai.api_key = ''
 
-output_file_path = 'output-500-extension.csv'
+output_file_path = 'output-500-4-roles-extension.csv'
 
-output_problem_path = 'problems-extension.csv'
+output_problem_path = 'problems-4-roles-extension.csv'
 
 
 
@@ -74,9 +74,9 @@ def append_csv_files(source_csv_1, source_csv_2, destination_csv):
             for row in csv_reader2:
                 csv_writer.writerow(row)
 
-source_csv_1 = 'output-1000-8-roles-extension.csv'
-source_csv_2 = 'output-1000-8-roles.csv'
-destination_csv = 'output-2000-8-roles.csv'
+source_csv_1 = 'output-1000-4-roles-extension.csv'
+source_csv_2 = 'output-1000-4-roles.csv'
+destination_csv = 'output-2000-4-roles.csv'
 
 def main():
     #process_random_files(directory = directory, batch_size = batch_size, output_problem_path = output_problem_path)
