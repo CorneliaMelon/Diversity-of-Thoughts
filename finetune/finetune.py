@@ -132,17 +132,17 @@ model = get_peft_model(model, peft_config)
 
 #Training arguments
 args = TrainingArguments(
-  output_dir = "exp1/checkpoints",
+  output_dir = "exp1_400epochs/checkpoints",
   #num_train_epochs=75,
-  max_steps = 4000, # comment out this line if you want to train in epochs
+  max_steps = 400, # comment out this line if you want to train in epochs
   per_device_train_batch_size = 4,
   warmup_steps = 0.03,
-  logging_steps=25,
+  logging_steps=1,
   save_strategy="steps",
-  save_steps = 500,
+  save_steps = 20,
   #evaluation_strategy="epoch",
   evaluation_strategy="steps",
-  eval_steps=50, # comment out this line if you want to evaluate at the end of each epoch
+  eval_steps=1, # comment out this line if you want to evaluate at the end of each epoch
   learning_rate=2.5e-5,
   bf16=True,
   # lr_scheduler_type='constant',
