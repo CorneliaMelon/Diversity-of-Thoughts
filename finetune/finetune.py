@@ -72,7 +72,7 @@ def read_csv_to_dict(file_path):
     return data_dict_list
 
 #Load finetuning dataset
-file_path = '/Users/corneliaweinzierl/Desktop/Diversity/Untitled/output-2000-4-roles.csv'
+file_path = '../output-2000-4-roles.csv'
 data_dict_list = read_csv_to_dict(file_path)
 # Convert the list of dictionaries to a dictionary of lists
 data_dict = {key: [d[key] for d in data_dict_list] for key in data_dict_list[0]}
