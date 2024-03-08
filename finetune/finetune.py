@@ -36,7 +36,7 @@ model = AutoModelForCausalLM.from_pretrained(
     model_id,
     quantization_config= bnb_config,  # Quantization configuration, you can change it according to your needs
     device_map=device_map,
-    temperature = 0
+    #temperature = 0
 )
 
 #Initialize tokenizer
@@ -72,7 +72,7 @@ def read_csv_to_dict(file_path):
     return data_dict_list
 
 #Load finetuning dataset
-file_path = '../output-1000-4-roles.csv'
+file_path = '/Users/corneliaweinzierl/Desktop/Diversity/Untitled/output-2000-4-roles.csv'
 data_dict_list = read_csv_to_dict(file_path)
 # Convert the list of dictionaries to a dictionary of lists
 data_dict = {key: [d[key] for d in data_dict_list] for key in data_dict_list[0]}
@@ -132,9 +132,9 @@ model = get_peft_model(model, peft_config)
 
 #Training arguments
 args = TrainingArguments(
-  output_dir = "exp1_400epochs/checkpoints",
+  output_dir = "exp_250_steps_2000_4_roles/checkpoints",
   #num_train_epochs=75,
-  max_steps = 400, # comment out this line if you want to train in epochs
+  max_steps = 250, # comment out this line if you want to train in epochs
   per_device_train_batch_size = 4,
   warmup_steps = 0.03,
   logging_steps=1,
