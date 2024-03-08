@@ -59,15 +59,15 @@ def solve_math_problems(input_str):
 
 def compute_accuracy(gt, pred_solutions):
     pred_answers = []
-
     for pred_solution in pred_solutions:
         pred_answer = extract_math_answer(pred_solution)
         pred_answers.append(pred_answer)
-    pred_answer = most_frequent(pred_answers)
+        pred_answer = most_frequent(pred_answers)
     # pred_answer = pred_answers[0]
-
+    print(f"GT full: {gt} \n\n Pred sol: {pred_solutions}")
+    print(f"GT: {extract_math_answer(gt)} and Predicted answer: {pred_answer}")
     try:
-        is_correct = is_equiv(gt, pred_answer)
+        is_correct = is_equiv(extract_math_answer(gt), pred_answer)
     except:
         is_correct = False
     if is_correct:
