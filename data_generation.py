@@ -17,11 +17,8 @@ ROLE_MAP = {
 
 
 def append_data_string_to_csv(data_string, output_file_path):
-    # Open the output CSV file in append mode
     with open(output_file_path, 'a', newline='', encoding='utf-8') as file:
-        # Create a CSV writer object
         writer = csv.writer(file)
-        # Write the data string as a separate row
         writer.writerow([data_string])
 
 

@@ -3,6 +3,7 @@ import json
 import csv
 #from openai import OpenAI
 import openai
+import time
 
 
 
@@ -65,10 +66,12 @@ def is_semantically_similar_gpt4(text1, text2):
 def process_csv_matches(file_path):
     
     num_matches = 0
-    #rows_processed = 0
+    rows_processed = 0
 
-    with open(file_path, 'r', encoding='utf-8') as csvfile:
+    with open(file_path, 'r', encoding='utf-8') as csvfile, open(output_file_path, 'a', newline='', encoding='utf-8') as outfile:
         reader = csv.reader(csvfile)
+        writer = csv.writer(outfile)
+
         for row in reader:
             
             row_content = row[0]
@@ -90,8 +93,18 @@ def process_csv_matches(file_path):
             match = is_semantically_similar_gpt4(ground_truth, solution)
 
             num_matches += match
+
+            if match == 1:
+                
+                writer.writerow(row)
+            
+            rows_processed += 1
+            if rows_processed % 140 == 0:
+                print(f"Processed {rows_processed} rows, pausing for 60 seconds.")
+                time.sleep(60)  
+
             #rows_processed += 1 
-            #if rows_processed == 50:  
+            #if rows_processed == 5:  
             #    break 
 
     return num_matches
@@ -100,9 +113,10 @@ def process_csv_matches(file_path):
             
 
 
-file_path = '/Users/corneliaweinzierl/Desktop/Diversity/Untitled/datasets/output-140.csv'  # Update this to your actual CSV file path
+file_path = '/Users/corneliaweinzierl/Desktop/Diversity/Untitled/datasets/output-500-extension.csv' 
+output_file_path = 'output-2000-4-cleaned.csv'
 matches = process_csv_matches(file_path)
-number_of_datapoints = 140
+number_of_datapoints = 1000
 
 print(f"Number of matches: {matches}")
 
