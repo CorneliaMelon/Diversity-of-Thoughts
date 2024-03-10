@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import json
 
 # Load the trainer state log
-file_path = '/Users/corneliaweinzierl/Downloads/trainer_state.json'
+file_path = '/Users/corneliaweinzierl/Downloads/trainer_state_new.json'
 
 with open(file_path, 'r') as file:
     data = json.load(file)

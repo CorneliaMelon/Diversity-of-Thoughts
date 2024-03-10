@@ -27,7 +27,7 @@ def load_log_data(file_path):
     return log_history
 
 
-file_path = '/Users/corneliaweinzierl/Downloads/trainer_state.json'  # Update this to your actual file path
+file_path = '/Users/corneliaweinzierl/Downloads/trainer_state_new.json'  # Update this to your actual file path
 log_history = load_log_data(file_path)
 
 print(log_history)
