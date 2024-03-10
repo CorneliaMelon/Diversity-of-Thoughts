@@ -129,11 +129,12 @@ def read_json_files(folder_path):
 
 val_path = '../data/val_set'
 val_dict_list = read_json_files(val_path)
-val_dict = {key: [d[key] for d in val_dict_list] for key in val_dict_list[0]}
+#val_dict = {key: [d[key] for d in val_dict_list] for key in val_dict_list[0]}
 # Create a dataset
-val_dataset = Dataset.from_dict(val_dict)
+#val_dataset = Dataset.from_dict(val_dict)
 #Tokenize the dataset
 #val_tokenized_train_dataset = val_dataset.map(tokenize_prompts)
+val_dataset = Dataset.from_dict({'prompt': [d['prompt'] for d in val_dict_list]})
 
 #PEFT configurations
 peft_config = LoraConfig(
