@@ -113,8 +113,8 @@ def process_csv_matches(file_path):
             
 
 
-file_path = '/Users/corneliaweinzierl/Desktop/Diversity/Untitled/datasets/output-500-extension.csv' 
-output_file_path = 'output-2000-4-cleaned.csv'
+file_path = '/Users/corneliaweinzierl/Desktop/Diversity/Untitled/output-2000-811-4-cleaned.csv' 
+output_file_path = 'output-2000-4-distilled.csv'
 matches = process_csv_matches(file_path)
 number_of_datapoints = 1000
 
