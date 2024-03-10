@@ -96,7 +96,7 @@ def copy_files_to_folder(files, output_directory):
 
 def main():
     csv_file_path = '/Users/corneliaweinzierl/Desktop/Diversity/Untitled/output-2000-811-4-cleaned.csv'
-    json_directory = '/Users/corneliaweinzierl/Downloads/MATH/test'
+    json_directory = '/Users/corneliaweinzierl/Downloads/MATH/train'
     output_directory = '/Users/corneliaweinzierl/Downloads/MATH/filtered/eval'
     
     csv_problems = get_problems_from_csv(csv_file_path)

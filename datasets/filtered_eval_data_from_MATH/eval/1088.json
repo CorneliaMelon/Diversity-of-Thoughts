@@ -1,6 +1,6 @@
 {
-    "problem": "A standard die is rolled. What is the probability that the number shown is not an even prime?",
-    "level": "Level 2",
-    "type": "Counting & Probability",
-    "solution": "Note that the only even prime is 2. The probabilty of rolling a 2 is $\\frac{1}{6}$, so the probabilty of not rolling a 2 is $1-\\frac{1}{6} = \\boxed{\\frac{5}{6}}$."
+    "problem": "If $\\mathbf{v} \\times \\mathbf{w} = \\begin{pmatrix} 5 \\\\ -2 \\\\ 4 \\end{pmatrix},$ then find $(\\mathbf{v} + \\mathbf{w}) \\times (\\mathbf{v} + \\mathbf{w}).$",
+    "level": "Level 3",
+    "type": "Precalculus",
+    "solution": "The cross product of any vector with itself is $\\mathbf{0} = \\boxed{\\begin{pmatrix} 0 \\\\ 0 \\\\ 0 \\end{pmatrix}}.$\n\nWe can also see this by expanding:\n\\begin{align*}\n(\\mathbf{v} + \\mathbf{w}) \\times (\\mathbf{v} + \\mathbf{w}) &= \\mathbf{v} \\times \\mathbf{v} + \\mathbf{v} \\times \\mathbf{w} + \\mathbf{w} \\times \\mathbf{v} + \\mathbf{w} \\times \\mathbf{w} \\\\\n&= \\mathbf{0} + \\mathbf{v} \\times \\mathbf{w} - \\mathbf{v} \\times \\mathbf{w} + \\mathbf{0} \\\\\n&= \\mathbf{0}.\n\\end{align*}"
 }
