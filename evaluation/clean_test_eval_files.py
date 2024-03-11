@@ -72,11 +72,12 @@ def sample_json_files(directory, csv_problems, max_files=70):
             
             with open(file_path, 'r', encoding='utf-8') as file:
                 data = json.load(file)
-                if data.get("problem") not in csv_problems:
+                if data.get("problem") not in csv_problems and data.get("level") == "Level 1":
                     subfolder_sampled_files.append(file_path)
-                    if len(sampled_files) + len(subfolder_sampled_files) == max_files:
+            
+            if len(sampled_files) + len(subfolder_sampled_files) == max_files:
                         
-                        break
+                break
         
         sampled_files.extend(subfolder_sampled_files)  
         
@@ -97,7 +98,7 @@ def copy_files_to_folder(files, output_directory):
 def main():
     csv_file_path = '/Users/corneliaweinzierl/Desktop/Diversity/Untitled/output-2000-811-4-cleaned.csv'
     json_directory = '/Users/corneliaweinzierl/Downloads/MATH/train'
-    output_directory = '/Users/corneliaweinzierl/Downloads/MATH/filtered/eval'
+    output_directory = '/Users/corneliaweinzierl/Desktop/Diversity/Untitled/datasets/filtered_eval_data_from_MATH/level_1_eval'
     
     csv_problems = get_problems_from_csv(csv_file_path)
     sampled_files = sample_json_files(json_directory, csv_problems)
