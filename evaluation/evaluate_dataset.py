@@ -99,7 +99,7 @@ def process_csv_matches(file_path):
                 writer.writerow(row)
             
             rows_processed += 1
-            if rows_processed % 140 == 0:
+            if rows_processed % 100 == 0:
                 print(f"Processed {rows_processed} rows, pausing for 60 seconds.")
                 time.sleep(60)  
 
@@ -113,10 +113,10 @@ def process_csv_matches(file_path):
             
 
 
-file_path = '/Users/corneliaweinzierl/Desktop/Diversity/Untitled/output-2000-811-4-cleaned.csv' 
-output_file_path = 'output-2000-4-distilled.csv'
+file_path = '/Users/corneliaweinzierl/Desktop/Diversity/Untitled/datasets/finetuning_datasets/output-2000-8-roles.csv' 
+output_file_path = 'output-2000-8-cleaned.csv'
 matches = process_csv_matches(file_path)
-number_of_datapoints = 1000
+number_of_datapoints = 2000
 
 print(f"Number of matches: {matches}")
 
