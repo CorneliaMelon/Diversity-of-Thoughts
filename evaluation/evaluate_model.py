@@ -74,7 +74,7 @@ def read_and_compare_json(file_path):
     print(f"Accuracy: {accuracy}")
 
 
-json_file_path = '/Users/corneliaweinzierl/Downloads/exp_811_cleaned_4_r.json'
+json_file_path = '/Users/corneliaweinzierl/Downloads/exp_2000_8_r.json'
 comparison_results = read_and_compare_json(json_file_path)
 
 
