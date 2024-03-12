@@ -106,17 +106,17 @@ def process_csv_matches(file_path):
             #rows_processed += 1 
             #if rows_processed == 5:  
             #    break 
-
+    print(rows_processed)
     return num_matches
 
 
             
 
 
-file_path = '/Users/corneliaweinzierl/Desktop/Diversity/Untitled/datasets/finetuning_datasets/output-2000-8-roles.csv' 
-output_file_path = 'output-2000-8-cleaned.csv'
+file_path = '/Users/corneliaweinzierl/Desktop/Diversity/Untitled/output-1000-2-roles.csv' 
+output_file_path = 'output-4-to-2-cleaned.csv'
 matches = process_csv_matches(file_path)
-number_of_datapoints = 2000
+number_of_datapoints = 1000
 
 print(f"Number of matches: {matches}")
 

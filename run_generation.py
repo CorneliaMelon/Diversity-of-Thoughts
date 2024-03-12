@@ -4,18 +4,19 @@ import os
 import json
 import random
 import csv
+import time
 
 
 
 openai.api_key = ''
 
-output_file_path = 'output-500-4-roles-extension.csv'
+output_file_path = 'output-140-2-roles-evals.csv'
 
-output_problem_path = 'problems-4-roles-extension.csv'
+output_problem_path = 'problems-140-2-roles-evals.csv'
 
 
 
-batch_size = 18
+batch_size = 20
 
 #QUERY = "A standard six-sided fair die is rolled four times. The probability that the product of all four numbers rolled is a perfect square is $\\tfrac{m}{n}$, where $m$ and $n$ are relatively prime positive integers. Find $m+n$.\n" 
 #directory = '/Users/corneliaweinzierl/Downloads/MATH/train/algebra'
@@ -26,19 +27,21 @@ batch_size = 18
 #directory = '/Users/corneliaweinzierl/Downloads/MATH/train/precalculus'
 #directory = '/Users/corneliaweinzierl/Downloads/MATH/train/intermediate_algebra'
 
-ROLES = ["Mathematician", "Economist", "Lawyer", "Programmer"]
+directories = ['/Users/corneliaweinzierl/Downloads/MATH/train/algebra', '/Users/corneliaweinzierl/Downloads/MATH/train/counting_and_probability', '/Users/corneliaweinzierl/Downloads/MATH/train/geometry','/Users/corneliaweinzierl/Downloads/MATH/train/number_theory','/Users/corneliaweinzierl/Downloads/MATH/train/prealgebra','/Users/corneliaweinzierl/Downloads/MATH/train/precalculus','/Users/corneliaweinzierl/Downloads/MATH/train/intermediate_algebra']
+
+ROLES = ["Mathematician", "Economist"]
 
 
 
 def process_random_files(directory, batch_size, output_problem_path):
-    
-    json_files = [f for f in os.listdir(directory) if f.endswith('.json')]
+    generation_count = 0
+    #json_files = [f for f in os.listdir(directory) if f.endswith('.json')]
     
     # Randomly sample batch_size number of files
-    if batch_size < len(json_files):
-        sampled_files = random.sample(json_files, batch_size)
-    else:
-        sampled_files = json_files
+    #if batch_size < len(json_files):
+    #    sampled_files = random.sample(json_files, batch_size)
+    #else:
+    #    sampled_files = json_files
     
     with open(output_problem_path, 'a', newline='', encoding='utf-8') as csvfile:
         csvwriter = csv.writer(csvfile)
@@ -47,17 +50,28 @@ def process_random_files(directory, batch_size, output_problem_path):
         csvfile.seek(0, os.SEEK_END)
         if csvfile.tell() == 0:
             csvwriter.writerow(['Problem'])
+
+        for directory in directories:
+            json_files = [f for f in os.listdir(directory) if f.endswith('.json')]
+
+            
+            sampled_files = random.sample(json_files, min(batch_size, len(json_files)))
         
         
-        for file in sampled_files:
-            file_path = os.path.join(directory, file)
-            with open(file_path, 'r', encoding='utf-8') as f:
-                data = json.load(f)
-                
-                problem = data.get("problem", "No problem found")
-                data_generation.construct_training_data(problem, ROLES, data_generation.ROLE_MAP, openai, output_file_path)
-                csvwriter.writerow([problem])
-    
+            for file in sampled_files:
+                file_path = os.path.join(directory, file)
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                    
+                    problem = data.get("problem", "No problem found")
+                    data_generation.construct_training_data(problem, ROLES, data_generation.ROLE_MAP, openai, output_file_path)
+                    csvwriter.writerow([problem])
+                generation_count += 1
+
+                if generation_count % 20 == 0:
+                        print("Pausing for 60 seconds after {} generations...".format(generation_count))
+                        time.sleep(60)
+        
 def append_csv_files(source_csv_1, source_csv_2, destination_csv):
     with open(destination_csv, 'w', newline='', encoding='utf-8') as dest_file:
         csv_writer = csv.writer(dest_file)
@@ -79,9 +93,9 @@ source_csv_2 = 'output-1000-4-roles.csv'
 destination_csv = 'output-2000-4-roles.csv'
 
 def main():
-    #process_random_files(directory = directory, batch_size = batch_size, output_problem_path = output_problem_path)
+    process_random_files(directory = directories, batch_size = batch_size, output_problem_path = output_problem_path)
     #data_generation.construct_training_data(QUERY, ROLES, data_generation.ROLE_MAP, openai, output_file_path)
-    append_csv_files(source_csv_1, source_csv_2, destination_csv)
+    #append_csv_files(source_csv_1, source_csv_2, destination_csv)
 
 if __name__ == "__main__":
     main()
