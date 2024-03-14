@@ -6,7 +6,7 @@ import time
 
 
 
-openai.api_key = ''
+openai.api_key = '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'
 
 def compare(model_answer, ground_truth):
     try:
@@ -74,7 +74,7 @@ def read_and_compare_json(file_path):
     print(f"Accuracy: {accuracy}")
 
 
-json_file_path = '/Users/corneliaweinzierl/Downloads/exp_2000_8_r.json'
+json_file_path = '/Users/corneliaweinzierl/Downloads/exp_800_2r_cleaned.json'
 comparison_results = read_and_compare_json(json_file_path)
 
 
