@@ -6,7 +6,7 @@ import time
 
 
 
-openai.api_key = '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'
+openai.api_key = ''
 
 def compare(model_answer, ground_truth):
     try:
