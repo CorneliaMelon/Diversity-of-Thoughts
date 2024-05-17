@@ -1,1 +1,1 @@
-This is our CS224N research project diversity-of-thoughts
+Diversity-of-Thoughts enables you to fine-tune open-source LLMs to incorporate different approaches to solving complex mathematical reasoning tasks internalising the resoning strategies from different LLM agents coming from different social, cultural and professional backgrounds. 
